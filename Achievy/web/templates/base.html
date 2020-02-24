@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DON Voting Hub</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+</head>
+<body class="container">
+  <header class="well">
+      <img src="static/logo.png" class="img1"></img>
+    {%if user %}
+      <div class="menu">
+      <a href="{{url_for('main')}}" class="btn-primary btn">Главная страница</a>
+      <a href="{{url_for('main')}}" class="btn-primary btn">Редактор</a>
+      <a href="{{url_for('main')}}" class="btn-primary btn">Личный кабинет</a>
+      <a href="{{url_for('main')}}" class="btn-primary btn">Выйти</a>
+      </div>
+    {%else%}
+       <div class="menu">
+      <a href="{{url_for('main')}}" class="btn-primary btn">Регистрация</a>
+      <a href="{{url_for('main')}}" class="btn-primary btn">Вход</a>
+      </div>
+    {%endif%}
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

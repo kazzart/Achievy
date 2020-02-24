@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% if (items)and(user) %}
+    <h3>Последние Опросы</h3>
+    {%for item in items%}
+        <div class=Voting><p class="voteName">{{item.vote_name}} by <i>{{item.login}}</i></p><a href="{{url_for('vote')}}?id={{item.id}}" class="vote"><i>{{item.vote_question}}</i></a></div>
+    {%endfor%}
+{%else%}
+<img src="static/icon-poll.png" class="img2">
+{%endif%}
+{%endblock%}
+

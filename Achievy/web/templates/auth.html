@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h4>Вход</h4>
+<form action="" method="post">
+    {{form.hidden_tag()}}
+    <div class="form-group">
+    <p>{{form.login.label}}</p>
+    {{form.login}}
+    </div>
+    {% for error in form.errors.login %}
+    <span style="color: red;">[{{error}}]</span><br>
+    {% endfor %}
+    <div class="form-group">
+    <p>{{form.password.label}}</p>
+    {{form.password}}
+    </div>
+    {% for error in form.errors.password %}
+    <span style="color: red;">[{{error}}]</span><br>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Войти</button>
+    {% if msg %}
+    <span style="color: red;">{{msg}}</span>
+    {% endif %}
+</form>
+</div>
+{% endblock %}

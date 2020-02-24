@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+   <head>
+      <meta charset="utf-8" />
+<title>
+Votes
+</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="Title" content="Votes">
+<meta name="description" content="Votes">
+<meta name="keywords" content="Votes">
+<link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+
+<body>
+<!-- начало общей таблицы всей страницы  №1-->
+<form>
+
+<table height="100%" width="1024" align="center" cellpadding="0" cellspacing="0" border="0">
+
+<tr><td valign="top">
+
+<!-- начало таблицы "шапка"  №2-->
+<table width="100%" height="90" bgcolor=" #007bff" cellpadding="0" cellspacing="0" border="0">
+<form>
+<input type="button" value="Login"  onClick='location.href="/login"'>
+</form>
+<form>
+<input type="button" value="Reg"  onClick='location.href="/registration"'>
+</form>
+
+<tr><td>Сервис голосований Don</td></tr>
+</table>
+<!-- конец таблицы "шапка"  №2-->
+
+<!-- начало средней таблицы  №3-->
+<table width="100%" height="600" cellpadding="0" cellspacing="0" border="0">
+
+
+
+
+<tr><td>
+
+<!-- начало вложенной средней таблицы  №5-->
+<table width="100%" height="100%" bgcolor=" #007bff" cellpadding="0" cellspacing="0" border="0">
+
+<tr>
+
+<!-- начало левой колонки вложенной средней таблицы  №5-->
+<td valign="top" width="224" bgcolor=" #007bff">Левая колонка</td>
+<!-- конец левой колонки вложенной средней таблицы  №5-->
+
+<!-- начало правой колонки вложенной средней таблицы  №5-->
+<td  valign="top" width="800" bgcolor="#B0E0E6"><h1></h1>
+    Центральная колонка
+<!-- конец левой колонки вложенной средней таблицы  №5-->
+    <br>Имя вопрос ответ</br>
+
+   {% for item in items %}
+
+      {{ item.vote_name }}
+      {{ item.vote_question }}
+      {{ item.answer }}
+
+   {% endfor %}
+    </td>
+</td>
+</tr>
+</table>
+<!-- конец вложенной средней таблицы  №5-->
+
+</td></tr>
+</table>
+
+<!-- конец средней таблицы №3 -->
+
+<!-- начало "подвала"  №4-->
+<table width="100%" height="90" bgcolor=" #007bff" cellpadding="0" cellspacing="0" border="0">
+<tr><td>Обратная свзяь     <br> 88005553535 </td></tr>
+
+</table>
+<!-- конец "подвала"  №4-->
+
+</td></tr>
+</table>
+<!-- конец общей таблицы всей страницы  №1-->
+
+</body>
+</html>
+{% endblock %}
