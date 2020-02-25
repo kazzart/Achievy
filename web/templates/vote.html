@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+{% if answ %}
+<p><h1>{{vote.vote_name}}</h1>
+<p><h2>{{vote.vote_question}}</h2>
+{% if (user)and(can_vote) %}<form name="VoteForm" action="" method="post" onsubmit="">{%endif%}
+{% for ans in answ %}
+
+    <div>{% if (user)and(can_vote) %} <label class="btn btn-secondary"> <input type="radio" name="answ" id="{{ans.id}}" value="{{ans.id}}" autocomplete="off">  {%endif%} <button type="button" class="btn btn-secondary">  {%if ans.id==answer%}<b>{%endif%}{{ans.vote_answer}}{%if ans.id==answer%}</b>{%endif%}{% if (user)and(can_vote) %}{%endif%}</button> </label> <span margin-left="30px"><i>{%if ans.vote_count%} {{ans.vote_count}}{%else%}0{%endif%}</i></span></div>
+
+{%endfor%}
+{% if (user)and(can_vote) %}<p><button type="submit" href="{{url_for('main')}}" class="btn btn-primary">Проголосовать</button></p>{%endif%}
+{% if (user)and(can_vote) %}</form>{%endif%}
+{%endif%}
+{{ch}}
+{%endblock%}
