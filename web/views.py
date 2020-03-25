@@ -1,7 +1,7 @@
 from flask import render_template, redirect, flash, session, request, url_for
 from web import app#, db
 from .forms import *
-#from .models import User, Vote, Answer
+from .models import User
 from flask_login import login_required, login_user, logout_user
 import hashlib
 
@@ -46,7 +46,7 @@ def reg():
     form = RegForm()
 
     if form.validate_on_submit():
-        # user = User(form.login_reg.data)
+        user = User(form.login_reg.data)
         # user.save(form.password_reg.data)
         session["Login"] = form.login_reg.data #user.login
         return redirect(url_for("main"))
