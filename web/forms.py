@@ -1,19 +1,25 @@
 # coding=utf-8
 """Данный файл описывает формы приложения"""
+from flask.ext.wtf import Form
+from wtforms import validators
+from wtforms.fields.html5 import EmailField
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField, SelectField, FieldList, BooleanField, RadioField, FileField, HiddenField
 from wtforms.validators import Length, EqualTo, ValidationError, DataRequired, Optional
-#from web.models import User , Room
+from web.models import User
 #from .helper import cur_user
 import re
 from flask.json import JSONDecoder
 from wtforms.widgets import CheckboxInput, ListWidget
 
 
-def not_exist(form, field):
-    pass
-    # if User.get(login=field.data):
-    #     raise ValidationError("Такой пользователь уже существует")
+def login_not_exist(form, field):
+    if User.getLogin(login=field.data):
+        raise ValidationError("Такой пользователь уже существует")
+
+def email_not_exist(form, field):
+    if User.getLogin(email=field.data):
+        raise ValidationError("Эта почта уже используется")
 
 
 def check_correct_name(form, field):
@@ -23,7 +29,9 @@ def check_correct_name(form, field):
 
 class RegForm(FlaskForm):
     login_reg = StringField("Имя пользователя", validators=[Length(5, message='Логин слишком короткий'),
-                                                            not_exist, check_correct_name])
+                                                            login_not_exist, check_correct_name])
+    mail_reg = EmailField("Электронная почта пользователя", validators=[DataRequired(), validators.Email(),
+                                                            email_not_exist])
     password_reg = PasswordField("Пароль", validators=[Length(8, message='Пароль слишком короткий')])
     confirm_reg = PasswordField("Повторите пароль",
                                 validators=[Length(8, message='Пароль слишком короткий'),
@@ -34,8 +42,8 @@ class RegForm(FlaskForm):
 
 def exist(form, field):
     pass
-    # if User.get(login=field.data) is None:
-    #     raise ValidationError("Такого пользователя не существует")
+    if User.get(login=field.data) is None:
+        raise ValidationError("Такого пользователя не существует")
 
 
 def match(form, field):
