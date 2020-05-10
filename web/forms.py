@@ -1,6 +1,6 @@
 # coding=utf-8
 """Данный файл описывает формы приложения"""
-from flask.ext.wtf import Form
+# from flask.ext.wtf import Form
 from wtforms import validators
 from wtforms.fields.html5 import EmailField
 from flask_wtf import FlaskForm

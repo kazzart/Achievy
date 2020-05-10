@@ -139,19 +139,19 @@ class PersonalInfo(db.Model):
     def __str__(self):
         return "Id: " + str(self.user_id) + ", name: " + self.name
 
-db.create_all()
-try:
-    User.register("sdf", "sdf", "sdf")
-except UserAlreadyExists as exc:
-    print(exc.args[0], "already occupied")
-else:
-    print("User added successfully")
-
-tmp = User.logIn("sdf", "sdf")
-# tmp.getLink()
+# db.create_all()
+# try:
+#     User.register("sdf", "sdf", "sdf")
+# except UserAlreadyExists as exc:
+#     print(exc.args[0], "already occupied")
+# else:
+#     print("User added successfully")
+#
+# tmp = User.logIn("sdf", "sdf")
+# # tmp.getLink()
+# # print(tmp)
+# # User.verify("ec9900fe88c7ea61b1aabc0d7721a469")
+# print(tmp.getInfo())
+# tmp.setName("kek")
+# print(tmp.getInfo())
 # print(tmp)
-# User.verify("ec9900fe88c7ea61b1aabc0d7721a469")
-print(tmp.getInfo())
-tmp.setName("kek")
-print(tmp.getInfo())
-print(tmp)
