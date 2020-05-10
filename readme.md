@@ -18,4 +18,4 @@ pip install virtualenv
 
 (Выключение виртуальной среды в консоли 
 
- - env\Scripts\activate.bat)
+ - env\Scripts\deactivate.bat)

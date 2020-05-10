@@ -1,1 +1,34 @@
 {% extends "base.html" %}
+{% block content %}
+
+        <div class="showType" id="showMap">
+            <label class="labelnoselect typeLabel" for="show_video_map">Отображать на карте</label>
+            <input name="selector" id="show_video_map" type="radio" class="showRad">
+        </div>
+        <div class="showType showInv" id="showTab">
+            <label class="labelnoselect typeLabel" for="show_video_table">Отображать в виде таблицы</label>
+            <input name="selector" id="show_video_table" type="radio" checked class="showRad">
+        </div>
+
+    <div id="video_table">
+{% for item in items %}    
+        <div class="video">
+            <a href="{{ url_for('play', vid=item.id) }}" class="Link">
+            <img src="{{url_for('get_image', pid=item.id)}}" alt="" class="preview">
+            </a>
+            <div class="videoTxt"> 
+                <a href="{{ url_for('play', vid=item.id) }}" class="Link">
+                <p class="videoName" title="{{item.title}}">{{item.title}}</p>
+                </a>
+                <p class="videoView">{{ item.viewers | length }} просмотров</p>
+            </div> 
+        </div>
+{% endfor %}
+    </div>
+
+    <div id="videos_map" align="center"></div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='videos_map.js') }}"></script>
+
+{% endblock %}

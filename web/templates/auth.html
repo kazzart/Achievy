@@ -1,27 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-<h4>Вход</h4>
-<form action="" method="post">
+<div class="INP">
+    <h2>Вход</h2>
+    <form action="" method="post">
     {{form.hidden_tag()}}
-    <div class="form-group">
-    <p>{{form.login.label}}</p>
-    {{form.login}}
-    </div>
-    {% for error in form.errors.login %}
-    <span style="color: red;">[{{error}}]</span><br>
-    {% endfor %}
-    <div class="form-group">
-    <p>{{form.password.label}}</p>
-    {{form.password}}
-    </div>
-    {% for error in form.errors.password %}
-    <span style="color: red;">[{{error}}]</span><br>
-    {% endfor %}
-    <button type="submit" class="btn btn-primary">Войти</button>
-    {% if msg %}
-    <span style="color: red;">{{msg}}</span>
-    {% endif %}
-</form>
+        <div>{{ form.login_log.label}}</div>
+        <div>{{ form.login_log(rows=5, cols=60) }}</div>
+        {% if form.login_log.errors %}
+            {% for error in form.login_log.errors %}
+            <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        <div>{{ form.password_log.label}}</div>
+        <div >{{ form.password_log(rows=5, cols=60) }}</div>
+        {% if form.password_log.errors %}
+            {% for error in form.password_log.errors %}
+            <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        {% if msg %}
+            <span style="color: red;">{{msg}}</span>
+        {% endif %}
+        {{ form.submit_log }}
+        <br>
+        <i><a href="{{url_for('reg')}}" class="Link">Нет профиля?</a></i>
+     </form>
 </div>
 {% endblock %}
