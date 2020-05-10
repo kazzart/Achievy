@@ -23,20 +23,20 @@
   <header id="Header">
     <div class="midHead">
         <div class="logo">
-        <a href="{{url_for('index')}}" class="Link"><img src="{{ url_for('static', filename='vhs4.png') }}" alt="" class="LogoImg"></a>
+        <a href="{{url_for('main')}}" class="Link"><img src="{{ url_for('static', filename='vhs4.png') }}" alt="" class="LogoImg"></a>
         <div class="LogoTxt" id="logoTxt" title="VideoHostingService">VHS</div>
         </div>
         <div class="navMenu">
         <div class="menuHolder" id="mHolder">Меню</div>
-        <a href="{{url_for('index')}}" class="Link" id="Home"><div class="navMen">Главная</div></a>
+        <a href="{{url_for('main')}}" class="Link" id="Home"><div class="navMen">Главная</div></a>
         <div class="navMen" id="Search">Поиск</div>
         <div class="navMen navClast">
             Мультискрин 
             <img src="{{ url_for('static', filename='down.png') }}" class="drop-down">
             <div class="inBtn">
                 <img src="{{ url_for('static', filename='updown.png') }}" class="drop-down up-down">
-                <a href="{{url_for('index')}}" class="Link" id="Multi"><div class="subBtn upst">Все комнаты</div></a>
-                <a href="{{url_for('index')}}" class="Link" id="Multi"><div class="subBtn">Создать комнату</div></a>
+                <a href="{{url_for('main')}}" class="Link" id="Multi"><div class="subBtn upst">Все комнаты</div></a>
+                <a href="{{url_for('main')}}" class="Link" id="Multi"><div class="subBtn">Создать комнату</div></a>
             </div>
         </div>
         {%if user %}
@@ -45,15 +45,15 @@
             <img src="{{ url_for('static', filename='down.png') }}" class="drop-down">
             <div class="inBtn">
                 <img src="{{ url_for('static', filename='updown.png') }}" class="drop-down up-down">
-                <a href="{{url_for('index')}}" class="Link" id="My"><div class="subBtn upst">Мой канал</div></a>
-                <a href="{{url_for('index')}}" class="Link" id="Views"><div class="subBtn">История</div></a>
-                <a href="{{url_for('index')}}" class="Link" id="Load"><div class="subBtn">Загрузить</div></a>
-                <a href="{{url_for('index')}}" class="Link" id="Out"><div class="subBtn">Выйти</div></a>
+                <a href="{{url_for('main')}}" class="Link" id="My"><div class="subBtn upst">Мой канал</div></a>
+                <a href="{{url_for('main')}}" class="Link" id="Views"><div class="subBtn">История</div></a>
+                <a href="{{url_for('main')}}" class="Link" id="Load"><div class="subBtn">Загрузить</div></a>
+                <a href="{{url_for('logout')}}" class="Link" id="Out"><div class="subBtn">Выйти</div></a>
             </div>
         </div>
         {%else%}
-        <a href="{{url_for('index')}}" class="Link" id="Come"><div class="navMen">Войти</div></a>
-        <a href="{{url_for('index')}}" class="Link" id="Log"><div class="navMen navEdge">Регистрация</div></a>
+        <a href="{{url_for('log')}}" class="Link" id="Come"><div class="navMen">Войти</div></a>
+        <a href="{{url_for('reg')}}" class="Link" id="Log"><div class="navMen navEdge">Регистрация</div></a>
         {%endif%}
         </div>
     </div>
