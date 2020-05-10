@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Ошибка 403. Нет доступа</h1>
+  <p>Запрошенная страница требует аутентификации.
+  <p><a href="{{url_for('main')}}" class="Link">На главную</a>
+{% endblock %}

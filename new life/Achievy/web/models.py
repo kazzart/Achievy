@@ -7,9 +7,9 @@ import hashlib
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    login = db.Column(db.String(32), unique=True, nullable=False)
-    password = db.Column(db.String(32), unique=False, nullable=False)
-    email = db.Column(db.String(128), unique=True, nullable=False)
+    login = db.Column(db.String(32), unique=True)  #, nullable=False)
+    password = db.Column(db.String(32), unique=False)  #, nullable=False)
+    email = db.Column(db.String(128), unique=True)  #, nullable=False)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     verified = db.Column(db.Boolean, default=False)
     link = db.Column(db.String(32), nullable=True)
