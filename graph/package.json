@@ -1,0 +1,29 @@
+{
+  "name": "test",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start-server": "browser-sync start --server --config bs-config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "fabric": "^3.6.3",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "css-loader": "^3.5.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
